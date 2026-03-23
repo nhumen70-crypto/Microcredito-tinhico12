@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinhico Microcrédito E.I</title>
+
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f2f2f7;}
+nav{background:#1f1f1f;padding:15px;text-align:center;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,0.3);border-bottom-left-radius:15px;border-bottom-right-radius:15px;}
+nav a{color:white;margin:10px;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#ff9800;}
+header{margin-top:70px;background:#ff9800;color:white;text-align:center;padding:60px;border-radius:0 0 30px 30px;}
+section{padding:40px;max-width:900px;margin:auto;opacity:0;transform:translateY(50px);transition:1s;border-radius:15px;background:white;margin-bottom:20px;}
+section.show{opacity:1;transform:translateY(0);}
+h2{color:#ff9800;}
+input{width:100%;padding:14px;margin:10px 0;border-radius:10px;border:1px solid #ccc;}
+button{padding:14px;background:#ff9800;border:none;color:white;border-radius:10px;cursor:pointer;}
+footer{background:#222;color:white;text-align:center;padding:20px;}
+.card{background:white;padding:20px;border-radius:15px;margin-bottom:15px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:18px;border-radius:50%;cursor:pointer;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#missao">Missão</a>
+<a href="#credito">Crédito</a>
+<a href="#requisitos">Requisitos</a>
+<a href="#pagamento">Pagamento</a>
+<a href="#simulador">Simulador</a>
+<a href="#pedido">Pedido</a>
+<a href="#contactos">Contactos</a>
+</nav>
+
+<header>
+<h1>Tinhico Microcrédito E.I</h1>
+<p>Para Uma Vida Melhor</p>
+<button onclick="ligarAgora()">📞 Falar Agora</button>
+</header>
+
+<section id="sobre">
+<h2>Sobre Nós</h2>
+<p>A Tinhico Microcrédito E.I fornece empréstimos rápidos e acessíveis.</p>
+</section>
+
+<section id="missao">
+<h2>Missão</h2>
+<p>Empoderar microempreendedores.</p>
+</section>
+
+<section id="simulador">
+<h2>Simulador</h2>
+<input type="number" id="valorD" placeholder="Valor">
+<button onclick="simularDiario()">Simular</button>
+<div id="resD"></div>
+</section>
+
+<section id="contactos">
+<h2>Contactos</h2>
+<div class="card">
+<p><strong>📞 Telefone:</strong> 853908255</p>
+<button onclick="ligarAgora()">📞 Ligar Agora</button>
+</div>
+</section>
+
+<footer>
+© 2026 Tinhico Microcrédito E.I
+</footer>
+
+<script>
+function ligarAgora(){window.location.href="tel:+258853908255";}
+function simularDiario(){
+let v=parseFloat(document.getElementById("valorD").value);
+if(isNaN(v))return;
+let total=v*1.30;
+document.getElementById("resD").innerHTML="Total: "+total;
+}
+</script>
+
+</body>
+</html>
