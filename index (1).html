@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinhico Microcrédito | Empréstimos Rápidos e Seguros</title>
+<style>
+    /* --- Reset e Estilo Geral --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background-color: #f7f9fc; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: #004a99; }
+    header, footer { background-color: #004a99; color: white; padding: 20px 0; text-align: center; }
+    main { max-width: 900px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    h1, h2, h3 { color: #004a99; margin-bottom: 10px; }
+    p { margin-bottom: 15px; }
+    button { background-color: #004a99; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #003366; }
+    input, select { padding: 8px; width: 100%; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    .flex { display: flex; gap: 20px; flex-wrap: wrap; }
+    .flex > div { flex: 1; min-width: 250px; }
+    .section { margin-bottom: 30px; }
+    .resultado { background: #e8f0fe; padding: 10px; border-radius: 5px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Tinhico Microcrédito</h1>
+    <p>Empréstimos rápidos e seguros para alcançar seus objetivos</p>
+</header>
+
+<main>
+
+<!-- Sobre a Empresa -->
+<section class="section">
+    <h2>Por que escolher a Tinhico Microcrédito?</h2>
+    <ul>
+        <li><strong>Processo Rápido:</strong> Análise do pedido em até 24 horas.</li>
+        <li><strong>Segurança Garantida:</strong> Proteção de dados com altos padrões.</li>
+        <li><strong>Taxas Transparentes:</strong> Juros claros e negociáveis.</li>
+        <li><strong>Atendimento Personalizado:</strong> Possibilidade de negociar juros diretamente.</li>
+    </ul>
+</section>
+
+<!-- Como Funciona -->
+<section class="section">
+    <h2>Como Funciona</h2>
+    <ol>
+        <li>Criar conta com email ou telefone e palavra-passe segura.</li>
+        <li>Completar perfil com endereço e setor de trabalho.</li>
+        <li>Escolher valor do empréstimo entre 5.000 MZN e 100.000 MZN.</li>
+        <li>Aguardar aprovação do pedido.</li>
+    </ol>
+</section>
+
+<!-- Simulador de Empréstimo -->
+<section class="section">
+    <h2>Simulador de Empréstimo</h2>
+    <div class="flex">
+        <div>
+            <label for="valor">Valor do Empréstimo (MZN):</label>
+            <input type="number" id="valor" value="5000" min="5000" max="100000">
+        </div>
+        <div>
+            <label for="prazo">Prazo (dias):</label>
+            <select id="prazo">
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+            </select>
+        </div>
+    </div>
+    <button onclick="simular()">Calcular Total</button>
+    <div id="resultado" class="resultado"></div>
+</section>
+
+<!-- Área do Cliente -->
+<section class="section">
+    <h2>Área do Cliente</h2>
+    <p>Faça login para acompanhar o status do seu pedido e pagamentos.</p>
+    <input type="text" placeholder="Email ou Telefone">
+    <input type="password" placeholder="Palavra-passe">
+    <button>Entrar</button>
+</section>
+
+<!-- Condições e Requisitos -->
+<section class="section">
+    <h2>Condições do Empréstimo</h2>
+    <ul>
+        <li>Valor mínimo: 5.000 MZN</li>
+        <li>Valor máximo: 100.000 MZN</li>
+        <li>Prazo: 30 a 90 dias</li>
+        <li>Taxa de juros: 30% (negociável mediante contacto)</li>
+    </ul>
+
+    <h3>Requisitos</h3>
+    <ul>
+        <li>18 anos ou mais</li>
+        <li>Bilhete de Identidade válido</li>
+        <li>Número de telefone ativo</li>
+        <li>Residir em Moçambique</li>
+        <li>Ter alguma atividade ou fonte de rendimento</li>
+    </ul>
+</section>
+
+<!-- Segurança e Licenças -->
+<section class="section">
+    <h2>Segurança e Licenças</h2>
+    <p>Mostramos nossos certificados, licenças e registro da empresa para garantir total confiança aos nossos clientes.</p>
+</section>
+
+<!-- Contactos -->
+<section class="section">
+    <h2>Contactos</h2>
+    <p>Email: info@txeneca.co.mz</p>
+    <p>Telefone: +258 85 244 5360</p>
+    <p>Endereço: Av. 25 de Setembro, Maputo – Moçambique</p>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2023 Tinhico Microcrédito. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+function simular() {
+    const valor = parseFloat(document.getElementById('valor').value);
+    const prazo = parseInt(document.getElementById('prazo').value);
+    const juros = 0.30; // 30%
+    const total = valor + (valor * juros);
+    const jurosDiarios = ((valor * juros) / prazo).toFixed(2);
+
+    document.getElementById('resultado').innerHTML = `
+        Valor do Empréstimo: <strong>${valor.toLocaleString()} MZN</strong><br>
+        Prazo: <strong>${prazo} dias</strong><br>
+        Juros (30%): <strong>${(valor * juros).toLocaleString()} MZN</strong><br>
+        Total a Pagar: <strong>${total.toLocaleString()} MZN</strong><br>
+        Juros por dia: <strong>${jurosDiarios} MZN/dia</strong>
+    `;
+}
+</script>
+
+</body>
+</html>
